@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple To-Do App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>To-Do List</h1>
+    <div class="input-box">
+        <input id="one" >
+        <button onclick="addtask()">Add</button>
+    </div>
+    <ul id="two"></ul>
+</div>
+
+<script>
+    var input=document.getElementById("one")
+    input.addEventListener("keydown", function(event){
+    if (event.key == "Enter"){
+        addtask()
+    }
+    })
+    function addtask(){
+        var output=document.getElementById("two")
+        if(input.value.trim()==""){
+            alert("Hey! Please type a task ")
+            return
+
+        }
+       
+        var show=document.createElement("li")
+      
+        var check=document.createElement("input")
+        check.type="checkbox"
+        show.appendChild(check)  
+       
+        var task=document.createElement("span")
+        task.textContent=input.value
+        show.appendChild(task)
+       
+        var button=document.createElement("button")
+        button.textContent="delete"
+        show.appendChild(button)
+        button.onclick=function removed(){
+             if(check.checked){
+               show.remove()
+        }
+             else{
+             alert("Hey! First complete the task")
+        }
+
+           
+        }
+        output.append(show)
+        input.value=""
+    }
+
+</script>
+</body>
+
+</html>
