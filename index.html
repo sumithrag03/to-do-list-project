@@ -38,10 +38,21 @@
         var task=document.createElement("span")
         task.textContent=input.value
         show.appendChild(task)
+        
+        check.onclick = function(){
+             if(check.checked){
+            task.classList.add("completed")
+        } 
+        else {
+            task.classList.remove("completed")
+        }
+        }
+
        
         var button=document.createElement("button")
         button.textContent="delete"
         show.appendChild(button)
+        
         button.onclick=function removed(){
              if(check.checked){
                show.remove()
